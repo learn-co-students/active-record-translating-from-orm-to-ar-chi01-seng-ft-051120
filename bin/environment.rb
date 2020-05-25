@@ -11,6 +11,13 @@ DB = ActiveRecord::Base.establish_connection(
   :database => "./db/dogs.db"
 )
 
+sql = <<-SQL
+  CREATE TABLE IF NOT EXISTS students (
+    id INTEGER PRIMARY KEY, 
+    name TEXT
+  )
+  SQL
+
 DB = ActiveRecord::Base.connection
 
 if ENV["ACTIVE_RECORD_ENV"] == "test"
